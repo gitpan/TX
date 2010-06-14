@@ -34,7 +34,7 @@ our $VERSION='0.01';
 sub url_esc ($) {
   my $v=shift;
   return '' unless defined $v;
-  $v =~ s{([^A-Za-z0-9\-_.!~*'()/])}{uc sprintf("%%%02x",ord($1))}eg;
+  $v =~ s{([^A-Za-z0-9\-_.!~*'()/])}{sprintf("%%%02X",ord($1))}eg;
   return $v;
 }
 

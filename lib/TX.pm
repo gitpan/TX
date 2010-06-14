@@ -11,7 +11,7 @@ use Carp;
 
 our @EXPORT_OK=qw(include);
 
-our $VERSION='0.08';
+our $VERSION='0.09';
 
 our @attributes;
 BEGIN {
@@ -310,7 +310,8 @@ sub include {
     %opts=%{shift()};
   }
 
-  my $add_v=lc delete $opts{VMODE};
+  my $add_v='';
+  $add_v=lc delete $opts{VMODE} if exists $opts{VMODE};
   my $keep_v=$add_v eq 'keep';
   $add_v=$add_v eq 'add';
 
